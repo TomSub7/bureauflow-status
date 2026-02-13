@@ -5,11 +5,22 @@ sites:
   - name: BureauFlow Website
     url: https://bureauflow.de
   - name: BureauFlow App
-    url: https://app.bureauflow.de
+    url: https://bureauflow-app.vercel.app
     expectedStatusCodes:
       - 200
       - 301
       - 302
+  - name: Status API
+    url: https://bureauflow.de/api/status
+    expectedStatusCodes:
+      - 200
+      - 503
+  - name: Booking API
+    url: https://bureauflow.de/api/book
+    method: POST
+    expectedStatusCodes:
+      - 400
+      - 405
   - name: Stripe Webhook
     url: https://bureauflow.de/api/webhooks/stripe
     expectedStatusCodes:
@@ -21,7 +32,8 @@ status-website:
   logoUrl: https://bureauflow.de/favicon.ico
   name: BureauFlow Status
   introTitle: "**BureauFlow** Systemstatus"
-  introMessage: Echtzeit-Status aller BureauFlow-Dienste. Powered by [Upptime](https://github.com/upptime/upptime).
+  introMessage: Echtzeit-Status aller BureauFlow-Dienste. Aktualisiert alle 5 Minuten. Powered by [Upptime](https://github.com/upptime/upptime).
+  theme: dark
   navbar:
     - title: Status
       href: /
